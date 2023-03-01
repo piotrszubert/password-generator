@@ -19,11 +19,11 @@ const Strength: React.FC = () => {
           Password:
           <input type="password" value={password} onChange={handleChange} />
         </label>
-        {score === 0 && <p>Weak</p>}
-        {score === 1 && <p>Fair</p>}
-        {score === 2 && <p>Good</p>}
-        {score === 3 && <p>Strong</p>}
-        {score === 4 && <p>Very Strong</p>}
+        {score === 0 && <p className='text-red-600'>Weak</p>}
+        {score === 1 && <p className='text-orange-600'>Fair</p>}
+        {score === 2 && <p className='text-green-600'>Good</p>}
+        {score === 3 && <p className='text-green-600'>Strong</p>}
+        {score === 4 && <p className='text-green-600'>Very Strong</p>}
       </div>
     </Layout>
   );
