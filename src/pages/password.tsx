@@ -30,7 +30,7 @@ const Password: React.FC = () => {
                     </button>
                 </div>
                 <div>
-                    <input type="text" value={password} />
+                    <input type="text" value={password} readOnly />
                     <CopyButton text={password} />
                 </div>
             </div>
