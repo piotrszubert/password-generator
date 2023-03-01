@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import generatePassword from 'generate-password';
+import CopyButton from 'components/copyButton'
 
 const Password: React.FC = () => {
   const [password, setPassword] = useState<string>('');
@@ -28,7 +29,10 @@ const Password: React.FC = () => {
                             Generate Password
                     </button>
                 </div>
-                <p>{password}</p>
+                <div>
+                    <input type="text" value={password} />
+                    <CopyButton text={password} />
+                </div>
             </div>
         </div>
     </div>
