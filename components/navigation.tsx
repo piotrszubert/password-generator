@@ -1,26 +1,20 @@
-// const navigation: NavItem[] = [
-// 	{ name: 'Home', href: '/' },
-// 	{ name: 'Password Generator', href: '/password' },
-// 	{ name: 'Password Strength Tester', href: '/strength' },
-// ];
-
-//{navigation.map((item) => (
-	// 				<Link
-	// 					key={item.name}
-	// 					href={item.href}
-	// 					className={`${router.pathname === item.href ? 'font-medium text-gray-900' : 'text-gray-500'
-	// 						} hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium`}
-	// 					aria-current={router.pathname === item.href ? 'page' : undefined}
-	// 				>
-	// 					{item.name}
-	// 				</Link>
-	// 			))}
-
-// export default Navigation;
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Navigation = () => {
+	const router = useRouter();
+		interface NavItem {
+		name: string;
+		href: string;
+	}
+
+	const navigation: NavItem[] = [
+		{ name: 'Home', href: '/' },
+		{ name: 'Password Generator', href: '/password' },
+		{ name: 'Password Strength Tester', href: '/strength' },
+	];
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -75,34 +69,37 @@ const Navigation = () => {
 						</div>
 						<div className='hidden lg:block lg:ml-6'>
 							<div className='flex space-x-4'>
-								<Link href='/' className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
-									Home
-								</Link>
-								<Link href='/about' className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
-									About
-								</Link>
-								<Link href='/contact' className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
-									Contact
-								</Link>
+								{navigation.map((item) => (
+									<Link
+										key={item.name}
+										href={item.href}
+										className={`${router.pathname === item.href ? 'font-medium text-blue-400' : 'text-gray-200'
+											} hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium`}
+										aria-current={router.pathname === item.href ? 'page' : undefined}
+									>
+										{item.name}
+									</Link>
+								))}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			{/* Mobile menu */}
 			{isOpen && (
 				<div className='lg:hidden'>
 					<div className='px-2 pt-2 pb-3 space-y-1' >
-						<Link href='/' className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'>
-							Home
-						</Link>
-						<Link href='/about' className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'>
-							About
-						</Link>
-						<Link href='/contact' className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'>
-							Contact
-						</Link>
+						{navigation.map((item) => (
+							<Link
+								key={item.name}
+								href={item.href}
+								className={`${router.pathname === item.href ? 'font-medium text-blue-400' : 'text-gray-200'
+									} hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium`}
+								aria-current={router.pathname === item.href ? 'page' : undefined}
+							>
+								{item.name}
+							</Link>
+						))}
 					</div>
 				</div>
 			)}
