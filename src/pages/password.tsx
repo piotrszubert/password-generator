@@ -20,24 +20,24 @@ const Password: React.FC = () => {
 
   return (
     <Layout>
-        <div className='bg-slate-300 h-screen'>
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32'>
-                <div className="flex flex-col gap-4">    
-                    <h1 className='text-5xl'>Password Generator</h1>
-                    <div>
-                        <button 
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-                            onClick={generate}>
-                                Generate Password
-                        </button>
-                    </div>
-                    <div>
-                        <input type="text" value={password} readOnly />
-                        <CopyButton text={password} />
-                    </div>
-                </div>
+      <div className='bg-slate-300 h-screen'>
+        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32'>
+          <div className="flex flex-col gap-4">
+            <h1 className='text-4xl mb-10'>Password Generator</h1>
+            <div>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 borde rounded-md"
+                onClick={generate}>
+                Generate Password
+              </button>
             </div>
+            <div className="max-w-sm mx-auto flex items-center justify-between py-2 px-4 bg-gray-100 rounded-md">
+              <input type="text" value={password} readOnly className="flex-grow bg-transparent outline-none" />
+              <CopyButton text={password} />
+            </div>
+          </div>
         </div>
+      </div>
     </Layout>
   );
 };
