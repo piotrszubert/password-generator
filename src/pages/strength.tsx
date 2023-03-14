@@ -20,7 +20,7 @@ const Strength: React.FC = () => {
             <h1 className='text-4xl mb-10'>Password Strength Tester</h1>
             <input type="password"
               value={password}
-              className="flex-grow rounded-md max-w-sm mx-auto py-2 px-4 bg-gray-100 outline-none"
+              className="flex-grow border border-slate-400 rounded-md max-w-sm mx-auto py-2 px-4 bg-gray-100 outline-none"
               onChange={handleChange}
             />
             {score === 0 && <p className='text-red-600'>Weak</p>}
