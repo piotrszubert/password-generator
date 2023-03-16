@@ -17,7 +17,7 @@ export default function Home() {
 				<div className="bg-slate-300">
 					<main className={inter.className}>
 						<div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32'>
-							<ul className='bg-gray-100 rounded-lg p-5 flex flex-col gap-5 list-none text-blue-600'>
+							<ul className='bg-gray-100 rounded-lg p-5 flex flex-col gap-5 list-none text-purple-600'>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a mix of uppercase and lowercase letters, numbers, and symbols.</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a minimum of 8 characters, but longer is better</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using common words, phrases, or patterns that can be easily guessed (such as &quot;password&quot;, &quot;123456&quot;, or &quot;qwerty&quot;).</li>

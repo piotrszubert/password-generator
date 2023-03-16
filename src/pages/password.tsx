@@ -50,11 +50,11 @@ const Password: React.FC = () => {
 							<input type="checkbox" id="password-lowercase" checked={lowercase} onChange={(e) => setLowercase(e.target.checked)} />
 						</div>
 						<div>
-							<button
-								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 borde rounded-md"
-								onClick={generate}>
-								Generate Password
-							</button>
+						<button
+							className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white font-semibold py-2 px-4 rounded"
+							onClick={generate}>
+							Generate Password
+						</button>
 						</div>
 						<div className="max-w-sm mx-auto flex items-center justify-between py-2 px-4 bg-gray-100 rounded-md">
 							<input type="text" value={password} readOnly className="flex-grow bg-transparent outline-none" />

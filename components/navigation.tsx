@@ -73,8 +73,8 @@ const Navigation = () => {
 									<Link
 										key={item.name}
 										href={item.href}
-										className={`${router.pathname === item.href ? 'font-medium text-blue-400' : 'text-gray-200'
-											} hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium`}
+										className={`${router.pathname === item.href ? 'font-medium text-purple-400' : 'text-gray-200'
+											} hover:text-purple-400 block px-3 py-2 rounded-md text-base font-medium`}
 										aria-current={router.pathname === item.href ? 'page' : undefined}
 									>
 										{item.name}
@@ -93,8 +93,8 @@ const Navigation = () => {
 							<Link
 								key={item.name}
 								href={item.href}
-								className={`${router.pathname === item.href ? 'font-medium text-blue-400' : 'text-gray-200'
-									} hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium`}
+								className={`${router.pathname === item.href ? 'font-medium text-purple-400' : 'text-gray-200'
+									} hover:text-purple-400 block px-3 py-2 rounded-md text-base font-medium`}
 								aria-current={router.pathname === item.href ? 'page' : undefined}
 							>
 								{item.name}
