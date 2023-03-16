@@ -20,13 +20,13 @@ export default function Home() {
 							<ul className='bg-gray-100 rounded-lg p-5 flex flex-col gap-5 list-none text-blue-600'>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a mix of uppercase and lowercase letters, numbers, and symbols.</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a minimum of 8 characters, but longer is better</li>
-								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using common words, phrases, or patterns that can be easily guessed (such as "password", "123456", or "qwerty").</li>
+								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using common words, phrases, or patterns that can be easily guessed (such as &quot;password&quot;, &quot;123456&quot;, or &quot;qwerty&quot;).</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a combination of random words, rather than a single word or phrase.</li>
-								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Don't reuse the same password for multiple accounts.</li>
+								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Don&apos;t reuse the same password for multiple accounts.</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a password manager to generate and store unique, strong passwords for each account.</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using personal information such as your name, birthdate, or address in your password.</li>
-								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using consecutive characters on the keyboard (such as "asdf" or "zxcv").</li>
-								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a passphrase or sentence that's easy for you to remember, but difficult for others to guess.</li>
+								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Avoid using consecutive characters on the keyboard (such as &quot;asdf&quot; or &quot;zxcv&quot;).</li>
+								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Use a passphrase or sentence that&apos;s easy for you to remember, but difficult for others to guess.</li>
 								<li className='border p-4 rounded-lg hover:bg-gray-200 transition duration-300 text-lg leading-7'>Update your passwords regularly (every 3-6 months), especially for sensitive accounts like banking or email.</li>
 							</ul>
 						</div>
