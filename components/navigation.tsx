@@ -11,8 +11,8 @@ const Navigation = () => {
 
 	const navigation: NavItem[] = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Password Generator', href: '/password' },
-		{ name: 'Password Strength Tester', href: '/strength' },
+		{ name: 'Password Generator', href: '/password-generator' },
+		{ name: 'Password Strength Tester', href: '/password-strength' },
 	];
 
 	const [isOpen, setIsOpen] = useState(false);
