@@ -16,6 +16,7 @@ export const PasswordGenerator = () => {
 
     setPassword(password)
   }
+
   const [password, setPassword] = useState<string>("")
   const [passwordLength, setPasswordLength] = useState<number>(8)
   const [numbers, setNumbers] = useState<boolean>(true)
@@ -26,12 +27,12 @@ export const PasswordGenerator = () => {
   return (
     <div>
       <div className="mt-6">
-        <div className="flex flex-col gap-3">
+        <fieldset className="flex flex-col gap-3">
           <input
             min={3}
             defaultValue={passwordLength}
             onChange={(e) => setPasswordLength(parseInt(e.target.value))}
-            className="border px-4 py-2"
+            className="rounded border px-4 py-2"
             type="number"
             name=""
             id=""
@@ -40,7 +41,7 @@ export const PasswordGenerator = () => {
             <input
               checked={numbers}
               onChange={(e) => setNumbers(e.target.checked)}
-              className="border py-2"
+              className="accent-black"
               type="checkbox"
               name=""
               id="numbersInput"
@@ -51,7 +52,7 @@ export const PasswordGenerator = () => {
             <input
               checked={symbols}
               onChange={(e) => setSymbols(e.target.checked)}
-              className="border py-2"
+              className="accent-black"
               type="checkbox"
               name=""
               id="symbolsInput"
@@ -62,7 +63,7 @@ export const PasswordGenerator = () => {
             <input
               checked={uppercase}
               onChange={(e) => setUppercase(e.target.checked)}
-              className="border py-2"
+              className="accent-black"
               type="checkbox"
               name=""
               id="uppercaseInput"
@@ -73,27 +74,32 @@ export const PasswordGenerator = () => {
             <input
               checked={lowercase}
               onChange={(e) => setLowercase(e.target.checked)}
-              className="border py-2"
+              className="accent-black"
               type="checkbox"
               name=""
               id="lowercaseInput"
             />
             Include lowercase letters
           </label>
-        </div>
+        </fieldset>
       </div>
       <div className="flex justify-end">
         <button
           onClick={() => generate()}
           className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/75"
         >
-          Generate 🚀
+          Generate
         </button>
       </div>
-
-      <div>
-        {password && <input className="border" type="text" value={password} />}
-      </div>
+      {password && (
+        <div className="mt-6 flex bg-[#f1f1f1] p-4">
+          <input
+            className="w-full rounded border py-2 text-lg font-bold"
+            type="text"
+            value={password}
+          />
+        </div>
+      )}
     </div>
   )
 }
