@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useState } from "react"
+import { CopyButton } from "./copy-button"
 
 export const PasswordGenerator = () => {
   const formSchema = z.object({
@@ -105,11 +106,18 @@ export const PasswordGenerator = () => {
             Include lowercase letters
           </label>
           <button className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/80">
-            Generate 
+            Generate
           </button>
         </form>
       </div>
-      {password && <div className="text-lg font-bold mt-3">{password}</div>}
+      {password && (
+        <div className="mt-3 flex items-center justify-between rounded border px-4 py-2">
+          <div className="text-lg font-bold">{password}</div>
+          <div>
+            <CopyButton textToCopy={password} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
