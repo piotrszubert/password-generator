@@ -1,105 +1,115 @@
 "use client"
 
 import generatePassword from "generate-password"
+import { useForm, SubmitHandler } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
 import { useState } from "react"
 
 export const PasswordGenerator = () => {
-  const generate = () => {
+  const formSchema = z.object({
+    length: z
+      .number()
+      .min(6, { message: "Password would be too short" })
+      .max(42, { message: "Password would be too long" }),
+    numbers: z.boolean().optional(),
+    symbols: z.boolean().optional(),
+    uppercase: z.boolean().optional(),
+    lowercase: z.boolean().optional(),
+  })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      length: 8,
+      numbers: true,
+      symbols: false,
+      uppercase: true,
+      lowercase: true,
+    },
+  })
+
+  const [password, setPassword] = useState<string>("")
+
+  const generate: SubmitHandler<z.infer<typeof formSchema>> = (data) => {
     const password = generatePassword.generate({
-      length: passwordLength,
-      numbers: numbers,
-      symbols: symbols,
-      uppercase: uppercase,
-      lowercase: lowercase,
+      length: data.length,
+      numbers: data.numbers,
+      symbols: data.symbols,
+      uppercase: data.uppercase,
+      lowercase: data.lowercase,
       excludeSimilarCharacters: true,
     })
 
     setPassword(password)
   }
 
-  const [password, setPassword] = useState<string>("")
-  const [passwordLength, setPasswordLength] = useState<number>(8)
-  const [numbers, setNumbers] = useState<boolean>(true)
-  const [symbols, setSymbols] = useState<boolean>(false)
-  const [uppercase, setUppercase] = useState<boolean>(false)
-  const [lowercase, setLowercase] = useState<boolean>(true)
-
   return (
     <div>
       <div className="mt-6">
-        <fieldset className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3" onSubmit={handleSubmit(generate)}>
           <input
-            min={3}
-            defaultValue={passwordLength}
-            onChange={(e) => setPasswordLength(parseInt(e.target.value))}
+            {...register("length", { valueAsNumber: true })}
             className="rounded border px-4 py-2"
             type="number"
-            name=""
             id=""
           />
+          {errors.length?.message && (
+            <p className="text-xs text-red-500">
+              {errors.length?.message.toString()}
+            </p>
+          )}
           <label htmlFor="numbersInput" className="flex gap-2">
             <input
-              checked={numbers}
-              onChange={(e) => setNumbers(e.target.checked)}
               className="accent-black"
               type="checkbox"
-              name=""
+              {...register("numbers")}
+              name="numbers"
               id="numbersInput"
             />
             Include numbers
           </label>
           <label htmlFor="symbolsInput" className="flex gap-2">
             <input
-              checked={symbols}
-              onChange={(e) => setSymbols(e.target.checked)}
+              // checked={symbols}
+              {...register("symbols")}
               className="accent-black"
               type="checkbox"
-              name=""
+              name="symbols"
               id="symbolsInput"
             />
             Include symbols
           </label>
           <label htmlFor="uppercaseInput" className="flex gap-2">
             <input
-              checked={uppercase}
-              onChange={(e) => setUppercase(e.target.checked)}
               className="accent-black"
+              {...register("uppercase")}
               type="checkbox"
-              name=""
+              name="uppercase"
               id="uppercaseInput"
             />
             Include uppercase letters
           </label>
           <label htmlFor="lowercaseInput" className="flex gap-2">
             <input
-              checked={lowercase}
-              onChange={(e) => setLowercase(e.target.checked)}
+              {...register("lowercase")}
               className="accent-black"
               type="checkbox"
-              name=""
+              name="lowercase"
               id="lowercaseInput"
             />
             Include lowercase letters
           </label>
-        </fieldset>
+          <button className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/80">
+            Generate 
+          </button>
+        </form>
       </div>
-      <div className="flex justify-end">
-        <button
-          onClick={() => generate()}
-          className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/75"
-        >
-          Generate
-        </button>
-      </div>
-      {password && (
-        <div className="mt-6 flex bg-[#f1f1f1] p-4">
-          <input
-            className="w-full rounded border py-2 text-lg font-bold"
-            type="text"
-            value={password}
-          />
-        </div>
-      )}
+      {password && <div className="text-lg font-bold mt-3">{password}</div>}
     </div>
   )
 }
