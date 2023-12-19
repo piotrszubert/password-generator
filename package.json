@@ -10,10 +10,13 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "generate-password": "^1.7.1",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
