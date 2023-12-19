@@ -45,7 +45,6 @@ export const PasswordGenerator = () => {
       excludeSimilarCharacters: true,
     })
 
-    // return password;
     setPassword(password)
   }
 
@@ -105,12 +104,12 @@ export const PasswordGenerator = () => {
             />
             Include lowercase letters
           </label>
-          <button className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/75">
-            Submit 
+          <button className="rounded-[1.25rem] border bg-black px-4 py-2 text-white hover:bg-black/80">
+            Generate 
           </button>
         </form>
       </div>
-      {password && <div>{password}</div>}
+      {password && <div className="text-lg font-bold mt-3">{password}</div>}
     </div>
   )
 }
