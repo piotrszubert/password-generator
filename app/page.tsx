@@ -6,9 +6,9 @@ export default function Home() {
       <div className="max-w-xl rounded border px-4 py-6 shadow-lg md:shadow-2xl">
         <h1 className="mb-2 text-xl font-bold">Password generator</h1>
         <p className="text-sm text-zinc-600">
-          So, whether you're need secure password we've got your back!
+          So, whether you&apos;re need secure password we&apos;ve got your back!
           <br />
-          Hit that button and let's get started! 🚀
+          Hit that button and let&apos;s get started! 🚀
         </p>
         <PasswordGenerator />
       </div>
