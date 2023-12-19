@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react"
 import Clipboard from "clipboard"
+import { toast } from "react-toastify"
 
 type CopyButtonProps = {
   textToCopy: string
@@ -12,7 +13,7 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
     const clipboard = new Clipboard(buttonRef.current as HTMLElement)
 
     clipboard.on("success", () => {
-      console.log("copied to clipboard")
+        toast('Password copied to clipboard!');
     })
 
     return () => {
@@ -21,6 +22,7 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
   })
 
   return (
+    <>
     <button type="button" className="h-9 w-9 grid place-items-center rounded hover:bg-[#e7e7e7]" ref={buttonRef} data-clipboard-text={textToCopy}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -37,5 +39,6 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
         />
       </svg>
     </button>
+    </>
   )
 }
