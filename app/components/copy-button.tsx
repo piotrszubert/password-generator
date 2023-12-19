@@ -13,7 +13,7 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
     const clipboard = new Clipboard(buttonRef.current as HTMLElement)
 
     clipboard.on("success", () => {
-        toast('Password copied to clipboard!');
+      toast("Password copied to clipboard!")
     })
 
     return () => {
@@ -22,8 +22,12 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
   })
 
   return (
-    <>
-    <button type="button" className="h-9 w-9 grid place-items-center rounded hover:bg-[#e7e7e7]" ref={buttonRef} data-clipboard-text={textToCopy}>
+    <button
+      type="button"
+      className="grid h-9 w-9 place-items-center rounded hover:bg-[#e7e7e7]"
+      ref={buttonRef}
+      data-clipboard-text={textToCopy}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -39,6 +43,5 @@ export const CopyButton = ({ textToCopy }: CopyButtonProps) => {
         />
       </svg>
     </button>
-    </>
   )
 }
